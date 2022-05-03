@@ -1,0 +1,252 @@
+body{
+    background-color: whitesmoke;
+}
+.main{
+    margin-left:60px;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*REDES SOCIALES*/
+.SocialNetwork{
+    background-color: #292929;
+    width: 1920px;
+    height: 40px;
+}
+a{
+    margin-left: 6px;
+}
+.miniContainer{ 
+    margin-left:150px;
+    padding-top: 10px;
+}
+/*MENU*/
+.menu{
+    width: 1920px;
+    background-color: whitesmoke;
+    list-style: none;
+    position:absolute;
+    z-index: 100000;
+}
+.minimenu{
+    margin-left: 740px;
+}
+.menu li a{
+    text-decoration: none;
+    color:black;
+    padding: 10px;
+    display: block;
+}
+.menu li{
+    display: inline-block;
+    text-align: center;
+}
+.menu li a:hover{
+    color:orange;
+ 
+}
+/*FIN MENU*/
+/*INICIO INFO*/
+.info{
+    list-style: none;
+    position: absolute;
+    margin-top:-28px;
+    margin-left: 1500px;
+}
+.info li{
+    font-size: 18px;
+    margin-left: 12px;
+    padding: 4px;
+    color: white;
+    display: inline-block;
+}
+.info li a {
+    color: white;
+    text-decoration: none;
+    display: block;   
+}
+.info li a:hover{
+    color:orange;
+ 
+}
+.Icon{
+    font-size: 25px;
+    color: white;
+}
+/*FIN INFO*/
+/*INICIO SLIDER*/
+#kiko-slider{
+    font-family: sans-serif;
+    background-color: white;
+    max-width: 800px;
+    width: 1920px;
+    box-sizing: border-box;
+}
+  
+  #kiko-slider > ul, li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+  }
+  #kiko-slider > ul.slider{
+    position: relative;
+    max-width: 800px;
+    width: 1920px;
+    height: 300px;
+  }
+  #kiko-slider > ul.slider h1{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%, -50%);
+  }
+  
+  #kiko-slider > ul.slider li {
+      margin-top: 20px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0;
+      width: inherit;
+      height: inherit;
+      transition: opacity .5s;
+      background:#fff;
+}
+  #kiko-slider > ul.slider li img{
+    width:1920px;
+    height: 700px;
+    object-fit: cover;
+  }
+  #kiko-slider > ul.slider li:first-child {
+      opacity: 1; /*Mostramos el primer <li>*/
+  }
+  #kiko-slider > ul.slider li:target {
+      opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+  }
+  #kiko-slider > .boton{
+    text-align: center;
+    margin: 20px;
+    position: absolute;
+    margin-left:800px;
+  } 
+  #kiko-slider > .boton li{
+    display: inline-block;
+    text-align: center;
+
+}
+  #kiko-slider > .boton li a{
+      margin-top: 350px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 100%;
+  }
+/*FIN SLIDER*/
+  /*MEDIO*/
+  .centro{
+      width: 1920px;
+      height: 500px;
+    }
+    h2{
+        color: rgb(80, 65, 65);
+    }
+    .centro ul{
+        margin-left: 20px;
+       margin-top: 430px;
+       font-size: 20px;
+    }
+    .bienvenida{
+        position: relative;
+        margin-top: 10px;
+        border-top: gray 1px solid;
+        border-bottom: gray 1px solid;
+    }
+    .cont_bien{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+.h3_bien{
+    margin-left: 250px;
+    color: lightseagreen;
+    margin-top: 30px;
+    font-size: 35px;
+    width: 10px;
+    height: 10px;
+}
+.escrito{
+    width: 900px;
+    height: 70px;
+    font-size: 20px;
+    margin-top: -3px;
+    margin-left: 500px;
+}
+
+.mini_img{
+    margin-top: 40px;
+    margin-left: 300px;
+}
+/*INICIO FOOTER*/
+  .footer{
+    position: absolute;
+    background-color: #292929;
+    width: 1920px;
+    height: 400px;
+  }
+
+  .foot1{
+      color: white;
+      font-size: 20px;
+      margin-left: 140px;
+      margin-top: 20px;
+      width: 200px;
+      height: 40px;
+  }
+
+  .foot2{
+    color: white;
+    font-size: 22px;
+    width: 250px;
+    height: 120px;
+    margin-top:-40px;
+    margin-left: 780px;
+  }
+
+  .foot3{
+    width: 500px;
+    height: 70px;
+    margin-top: -120px;
+    margin-left: 1400px;
+    font-size: 22px;
+    color:white;
+ }
+
+ .politicas{
+     position: absolute;
+     font-size: 16px;
+     margin-left: 20px;
+     margin-top:240px;
+     width: 500px;
+     height: 100px;
+     color: white;
+ }
+ .logo{
+     position: absolute;
+     margin-left: 1600px;
+     margin-top: 220px;
+ }
+
+ .miniContainer2{
+     margin-top: 50px;
+    margin-left: 150px;
+}
+ /*FIN FOOTER*/
