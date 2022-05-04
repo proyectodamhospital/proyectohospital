@@ -8,10 +8,12 @@
   import {
       getFirestore,
       getDoc,
+      getDocs,
       setDoc,
       doc,
       query,
-      where
+      where,
+      collection
   } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -41,21 +43,39 @@
   //const querydni = query(dniRef, where("dni", "==", "123"))
 
 
+//export const checkUser = async
 
 
   //guarda en una coleccion
-  export const saveTask = (nombre, apellido, dni, telefono, correo, login, contraseña) => {
+  export const saveTask = async(nombre, apellido, dni, telefono, correo, login, contraseña) => {
 
+    const querySnapshot = await getDocs(collection(db, "clientes"));
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      if(doc.id == dni){
+       console.log("YA EXISTE EL DOCUMENTO")
+       
+      }else{
 
+     
+        setDoc(doc(db, 'clientes', dni), {
+            nombre: nombre,
+            apellido: apellido,
+            dni: dni,
+            telefono: telefono,
+            correo: correo,
+            login: login,
+            contraseña: contraseña,
+    
+            
+        })
+        break;
 
-      setDoc(doc(db, 'clientes', dni), {
-          nombre: nombre,
-          apellido: apellido,
-          dni: dni,
-          telefono: telefono,
-          correo: correo,
-          login: login,
-          contraseña: contraseña,
-      })
+      }
+
+    });
+    
       // console.log(title,descripcion)
   }
+
+  // 12 espacios bootstrap

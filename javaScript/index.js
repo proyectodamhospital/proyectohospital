@@ -19,12 +19,7 @@ formAlta.addEventListener('submit', (e) => {
     const correo = formAlta['altaUsu-email']
     const usuario = formAlta['altaUsu-usu']
     const contraseña = formAlta['altaUsu-contra']
-
-
-
-
-
-
+    
     saveTask(
         nombre.value,
         apellido.value,
