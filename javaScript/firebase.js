@@ -43,38 +43,35 @@
   //const querydni = query(dniRef, where("dni", "==", "123"))
 
 
-//export const checkUser = async
+  //export const checkUser = async
 
 
   //guarda en una coleccion
-  export const saveTask = async(nombre, apellido, dni, telefono, correo, login, contraseña) => {
+  export const saveTask = async (nombre, apellido, dni, telefono, correo, login, contraseña) => {
+      var x = Boolean(false);
+      const querySnapshot = await getDocs(collection(db, "clientes"));
+      querySnapshot.forEach((doc) => {
+          if (doc.id == dni) {
+              console.log("YA EXISTE EL DOCUMENTO")
+              x = false;
+          } else {
+              x = true;
+          }
 
-    const querySnapshot = await getDocs(collection(db, "clientes"));
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      if(doc.id == dni){
-       console.log("YA EXISTE EL DOCUMENTO")
-       
-      }else{
+      })
 
-     
-        setDoc(doc(db, 'clientes', dni), {
-            nombre: nombre,
-            apellido: apellido,
-            dni: dni,
-            telefono: telefono,
-            correo: correo,
-            login: login,
-            contraseña: contraseña,
-    
-            
-        })
-        break;
-
+      if (x == true) {
+          setDoc(doc(db, 'clientes', dni), {
+              nombre: nombre,
+              apellido: apellido,
+              dni: dni,
+              telefono: telefono,
+              correo: correo,
+              login: login,
+              contraseña: contraseña
+          })
       }
 
-    });
-    
       // console.log(title,descripcion)
   }
 
