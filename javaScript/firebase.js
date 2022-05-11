@@ -8,10 +8,12 @@
   import {
       getFirestore,
       getDoc,
+      getDocs,
       setDoc,
       doc,
       query,
-      where
+      where,
+      collection
   } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -35,27 +37,38 @@
   const analytics = getAnalytics(app);
   // Initialize service
   const db = getFirestore();
-  //Collecion
-  //const dniRef = collection(db, 'clientes')
-  //query
-  //const querydni = query(dniRef, where("dni", "==", "123"))
-
 
 
 
   //guarda en una coleccion
-  export const saveTask = (nombre, apellido, dni, telefono, correo, login, contraseña) => {
+  export const saveTask = async (nombre, apellido, dni, telefono, correo, login, contraseña) => {
+    var x = Boolean(false);
+    const querySnapshot = await getDocs(collection(db, "clientes"));
+    querySnapshot.forEach((doc) => {
+        if (doc.id == dni) {
+            console.log("YA EXISTE EL DOCUMENTO")
+            x = false;
+        } else{
+            x = true;
+        }
+
+    })
+// size == 0 
+    if (x == true) {
+        setDoc(doc(db, 'clientes', dni), {
+            nombre: nombre,
+            apellido: apellido,
+            dni: dni,
+            telefono: telefono,
+            correo: correo,
+            login: login,
+            contraseña: contraseña,
+
+        })
+    }
+
+    // console.log(title,descripcion)
+}
 
 
-
-      setDoc(doc(db, 'clientes', dni), {
-          nombre: nombre,
-          apellido: apellido,
-          dni: dni,
-          telefono: telefono,
-          correo: correo,
-          login: login,
-          contraseña: contraseña,
-      })
-      // console.log(title,descripcion)
-  }
+  // 12 espacios bootstrap

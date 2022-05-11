@@ -19,9 +19,12 @@ formAlta.addEventListener('submit', (e) => {
     const correo = formAlta['altaUsu-email']
     const usuario = formAlta['altaUsu-usu']
     const contraseña = formAlta['altaUsu-contra']
+    const contraseña2 = formAlta['altaUsu-contra2']
 
+    if(contraseña != contraseña2){
+alert("la contraseñas no coinciden");
 
-
+    }
 
 
 
@@ -32,7 +35,8 @@ formAlta.addEventListener('submit', (e) => {
         telefono.value,
         correo.value,
         usuario.value,
-        contraseña.value)
+        contraseña.value
+      )
 
 
 })
