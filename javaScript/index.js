@@ -1,6 +1,8 @@
 import {
     saveTask
-} from './firebase.js'
+} from './firebase.js';
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -21,40 +23,30 @@ formAlta.addEventListener('submit', (e) => {
     const contraseña = formAlta['altaUsu-contra']
     const contraseña2 = formAlta['altaUsu-contra2']
 
-    if(contraseña != contraseña2){
-alert("la contraseñas no coinciden");
+
+    if (contraseña.value != contraseña2.value) {
+        alert("las contraseñas no coinciden");
+    } else if (!correo.value.includes("@") && !correo.value.includes(".com") || !correo.value.includes(".es")) {
+        alert("el correo debe de contener @ y acabar en .com o .es");
+    } else {
+        saveTask(
+            nombre.value,
+            apellido.value,
+            DNI.value,
+            telefono.value,
+            correo.value,
+            usuario.value,
+            contraseña.value
+        )
+
+
 
     }
 
 
 
-    saveTask(
-        nombre.value,
-        apellido.value,
-        DNI.value,
-        telefono.value,
-        correo.value,
-        usuario.value,
-        contraseña.value
-      )
+
+
 
 
 })
-
-
-/*
-function sendEmail() {
-	Email.send({
-	Host: "smtp.gmail.com",
-	Username : "<cerveramonzo@gmail.com>",
-	Password : "<Jose93z4>",
-	To : '<proyectodamhospital@gmail.com>',
-	From : "<cerveramonzo@gmail.com>",
-	Subject : "<email subject>",
-	Body : "<eseeeeeee es>",
-	}).then(
-		message => alert("mail sent successfully")
-	);
-}
-
-*/

@@ -1,8 +1,7 @@
-body{
+html{
     background-color: whitesmoke;
-}
-.main{
-    margin-left:60px;
+    width: 100%;
+    height: 100%;
 }
 *{
     padding: 0;
@@ -31,9 +30,10 @@ a{
     position:absolute;
     z-index: 100000;
 }
-.minimenu{
-    margin-left: 740px;
+.menu ul{
+    padding-left: 700px;
 }
+
 .menu li a{
     text-decoration: none;
     color:black;
@@ -52,7 +52,6 @@ a{
 /*INICIO INFO*/
 .info{
     list-style: none;
-    position: absolute;
     margin-top:-28px;
     margin-left: 1500px;
 }
@@ -62,11 +61,12 @@ a{
     padding: 4px;
     color: white;
     display: inline-block;
+
 }
 .info li a {
     color: white;
     text-decoration: none;
-    display: block;   
+    display: block;
 }
 .info li a:hover{
     color:orange;
@@ -79,10 +79,7 @@ a{
 /*FIN INFO*/
 /*INICIO SLIDER*/
 #kiko-slider{
-    font-family: sans-serif;
-    background-color: white;
-    max-width: 800px;
-    width: 1920px;
+    width: 100%;
     box-sizing: border-box;
 }
   
@@ -99,7 +96,6 @@ a{
   }
   #kiko-slider > ul.slider h1{
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
     left: 50%;
     top: 100px;
@@ -115,7 +111,6 @@ a{
       width: inherit;
       height: inherit;
       transition: opacity .5s;
-      background:#fff;
 }
   #kiko-slider > ul.slider li img{
     width:1920px;
@@ -130,31 +125,29 @@ a{
   }
   #kiko-slider > .boton{
     text-align: center;
-    margin: 20px;
     position: absolute;
-    margin-left:800px;
-  } 
+    margin-left:830px;
+    margin-top: 350px;  
+} 
   #kiko-slider > .boton li{
-    display: inline-block;
+    
     text-align: center;
+    display: inline-block;
 
 }
   #kiko-slider > .boton li a{
-      margin-top: 350px;
-    display: inline-block;
-    color: white;
+    display:block;
     text-decoration: none;
     background-color: black;
     padding: 10px;
     width: 20px;
     height: 20px;
-    font-size: 20px;
     border-radius: 100%;
   }
 /*FIN SLIDER*/
   /*MEDIO*/
   .centro{
-      width: 1920px;
+      width: 100%;
       height: 500px;
     }
     h2{
@@ -204,6 +197,7 @@ a{
   }
 
   .foot1{
+    line-height: 28px;
       color: white;
       font-size: 20px;
       margin-left: 140px;
@@ -212,7 +206,11 @@ a{
       height: 40px;
   }
 
+  .foot2 ul li{
+    list-style:none;
+  }
   .foot2{
+    line-height: 28px;
     color: white;
     font-size: 22px;
     width: 250px;
@@ -222,6 +220,7 @@ a{
   }
 
   .foot3{
+      line-height: 28px;
     width: 500px;
     height: 70px;
     margin-top: -120px;
@@ -250,3 +249,173 @@ a{
     margin-left: 150px;
 }
  /*FIN FOOTER*/
+
+ .menu-icon img{
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+}
+
+.menu-icon,#check{
+    display: none;
+}
+
+ @media (min-width:375px) and (max-width: 899px){
+     .SocialNetwork{
+        background-color: #292929;
+        width: 100%;
+        height: 40px;
+     }
+
+     .tel{
+         visibility: hidden;
+     }
+
+     .miniContainer{
+         margin-left: 15px;
+     }
+     .info{
+         margin-left: 50px;
+     }
+
+     .menu{
+        width: 375px;
+        height: 30px;
+     }
+     .minimenu{
+         margin-left: 0px;
+     }
+
+     #kiko-slider > ul.slider{
+        width: 375px;
+        height: 300px;
+      }
+     #kiko-slider > ul.slider li img{
+        width:375px;
+        height: 700px;
+      }
+
+      #kiko-slider > .boton{
+          margin-top: 370px;
+        margin-left:100px;
+    } 
+
+      .centro{
+          width: auto;
+          height: auto;        
+      }
+
+      .h3_bien{
+          margin-top: 63px;
+          margin-left: 0px;
+          font-size: 21px;
+      }
+
+      .escrito{
+          font-size: medium;
+          width: auto;
+          height: auto;
+          margin-top: -63px;
+          margin-left: 150px;
+      }
+
+      .centro ul{
+       font-size: 15px;
+    }
+
+    .mini_img{
+        display: grid;
+        grid-template-rows: repeat(3,1fr);
+        gap:10px;
+        margin-left: 8px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .footer{
+        width: 375px;
+        height: 500px;
+    }
+
+    .foot1{
+        width: 95px;
+        font-size: small;
+        margin-left:50px;
+    }
+
+    .miniContainer2{
+        margin-top: -40px;
+        margin-left: 30px;
+    }
+
+    .foot2{
+        font-size: small;
+        margin-left: 225px;
+        width: 150px;
+        height: 190px;
+    }
+
+    .foot3{
+        line-height: 20px;
+        width: 340px;
+        height: 80px;
+        position: absolute;
+        margin-top:20px;
+        font-size: small;
+        margin-left: 25px;
+
+    }
+
+    .politicas{
+        width:368px ;
+        height: 55px;
+        margin-top:235px;
+        font-size: small;
+        margin-left: 7px;
+    }
+
+    .logo{
+        margin-top:140px;
+        margin-left: 30px;
+    }
+
+
+    .checkbtn{
+        display:block;
+    }
+
+    .menu-icon{
+        display: block;
+        position: absolute;
+        top:0px;
+        right: 20px;
+
+    }
+
+    .menu ul{
+        padding-left: 0px;
+        display:block;
+        position: absolute;
+        top:30px;
+        left: -100%;
+        background-color: whitesmoke;
+        width: 100%;
+        height: 26vh;
+        right: 0;
+    }
+
+    .menu ul li{
+        display: flex;
+        justify-content: center;
+ 
+    }
+
+    .menu ul li :last-child{
+        padding: 1rem;
+        background: none;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
