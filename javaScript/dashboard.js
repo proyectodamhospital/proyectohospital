@@ -1,6 +1,7 @@
 import {
     saveDoctor,
-    deleteDoc
+    deleteDoco
+
 } from './firebase.js'
 //inicio desplegable izquierda
 const toggle = document.querySelector(".toggle")
@@ -74,7 +75,8 @@ const addJsonElement = json => {
             $div.classList.add("notification", "is-link", "is-light", "py-2", "my-1")
             $div.innerHTML = templateElement(`${$form.name.value}-${$form.email.value}-${$form.tlf.value}-${$form.dni.value}-${$form.pass.value}`, index)
 
-            $divElements.insertBefore($div, $divElements.firstChild) //   $form.reset()
+            $divElements.insertBefore($div, $divElements.firstChild)
+            //$form.reset()
 
         } else {
             alert("Complete los campos")
@@ -119,12 +121,44 @@ frmDelUsers.addEventListener('submit', (e) => {
     e.preventDefault()
     const dni = frmDelUsers['dni-delete']
 
-    deleteDoc(
-        // console.log(dni.value),
+    deleteDoco(
+
         dni.value
 
     )
 
-
+    console.log(dni.value)
 
 })
+
+
+/*
+frmDelUsers.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const dni = frmDelUsers['dni-delete']
+
+    const querySnapshot = await getTaskDoctor()
+    querySnapshot.forEach(doc => {
+        if (dni.value == doc.data().dni) {
+            x = true;
+            console.log("soy el puto amo")
+            deleteDoc(doc(db, "doctores", dni));
+
+        } else {
+            x = false;
+            console.log("NOOOOOOOOOOOOO soy el puto amo")
+        }
+
+
+
+        
+        COPIAR EL BLOQUE PARA EL ROOT POR QUE FALTA PRIORIZAR EL ORDEN DE BUSQUEDA POR TABLAS
+        
+        FALTA REDIRECCIONAMIENTO POR TIPO DE PERSONA
+        
+
+        // console.log(doc.data());
+
+    });
+
+*/

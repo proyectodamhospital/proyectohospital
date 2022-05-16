@@ -12,10 +12,7 @@ const log = document.getElementById('loginform')
 
 log.addEventListener('submit', async (e) => {
     e.preventDefault()
-
     var x = Boolean(false);
-
-
     const usuario = log['log-usu']
     const contraseña = log['log-contra']
     /**

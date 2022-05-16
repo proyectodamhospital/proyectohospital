@@ -11,6 +11,7 @@
       setDoc,
       doc,
       collection,
+      deleteDoc
 
 
 
@@ -40,6 +41,7 @@
 
   export const getTask = async () => getDocs(collection(db, "clientes"));
   export const getTaskroot = async () => getDocs(collection(db, "root"));
+  export const getTaskDoctor = async () => deleteDoc(doc(db, "doctores", "qwed"));
 
 
 
@@ -130,30 +132,41 @@
 
   //  export const deleteDoc = (doc) => deleteDoc(doc(db, "doctores"), doc.id);
 
-  export const deleteDoc = async (dni) => {
+  export const deleteDoco = async (dni) => {
       var x = Boolean(false);
       const querySnapshot = await getDocs(collection(db, "doctores"));
       querySnapshot.forEach((doc) => {
-          //   console.log(doc.id);
-          // console.log(dni);
-
 
           if (doc.id == dni) {
-              console.log(doc.id);
-              console.log(dni);
+              //   console.log(doc.id);
+              //   console.log(dni);
 
-              console.log("YA EXISTE EL DOCUMENTO");
-
+              // console.log(" EL DOCUMENTO A BORRAR EXISTE");
               x = false;
+              //   console.log(x);
+              if (x == false) {
+                  console.log("holaaaaaa1");
+
+
+                  console.log("holaaaaaa2");
+
+              }
           } else {
               x = true;
+              //  console.log("NO EXISTE EL DOC");
+              // console.log(x);
+
           }
+
+
       })
+
       // size == 0 
+      if (x == true) {
+          console.log("YA EXISTE EL DOCUMENTO");
 
-      if (x == false) {
-
-          await deleteDoc(doc(db, "doctores", dni).delete());
+          deleteDoc(doc(db, "doctores", dni));
+          console.log("YA EXISTE EL DOCUMENTO");
 
       }
 
