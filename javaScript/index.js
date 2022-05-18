@@ -1,5 +1,5 @@
 import {
-    saveTask
+    saveCli
 } from './firebase.js';
 
 
@@ -16,6 +16,10 @@ formAlta.addEventListener('submit', (e) => {
 
     const nombre = formAlta['altaUsu-nombre']
     const apellido = formAlta['altaUsu-ape']
+    const direccion = formAlta['altaUsu-dire']
+    const poblacion = formAlta['altaUsu-pobla']
+    const provincia = formAlta['altaUsu-provi']
+    const pais = formAlta['altaUsu-pais']
     const DNI = formAlta['altaUsu-DNI']
     const telefono = formAlta['altaUsu-tfn']
     const correo = formAlta['altaUsu-email']
@@ -26,12 +30,16 @@ formAlta.addEventListener('submit', (e) => {
 
     if (contraseña.value != contraseña2.value) {
         alert("las contraseñas no coinciden");
-    } else if (!correo.value.includes("@") && !correo.value.includes(".com") || !correo.value.includes(".es")) {
+    } else if (!correo.value.includes("@")) {
         alert("el correo debe de contener @ y acabar en .com o .es");
     } else {
-        saveTask(
+        saveCli(
             nombre.value,
             apellido.value,
+            direccion.value,
+            poblacion.value,
+            provincia.value,
+            pais.value,
             DNI.value,
             telefono.value,
             correo.value,

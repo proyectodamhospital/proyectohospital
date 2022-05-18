@@ -11,6 +11,8 @@
       setDoc,
       doc,
       collection,
+      deleteDoc,
+
 
 
 
@@ -40,13 +42,32 @@
 
   export const getTask = async () => getDocs(collection(db, "clientes"));
   export const getTaskroot = async () => getDocs(collection(db, "root"));
+  export const getTaskDoctor = async () => deleteDoc(doc(db, "doctores", "qwed"));
+
+
+
+  function generatePassword() {
+      var pass = '';
+      var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+          'abcdefghijklmnopqrstuvwxyz' + '0123456789' + '!"·$%&/()=?¿';
+
+      var i;
+      for (i = 0; i <= 7; i++) {
+          var char = Math.floor(Math.random() *
+              str.length + 3);
+
+          pass += str.charAt(char)
+      }
+
+      return pass;
+  }
 
 
 
   //guarda en una coleccion
-  export const saveTask = async (nombre, apellido, dni, telefono, correo, login, contraseña) => {
+  export const saveCli = async (nombre, apellido, direccion, poblacion, provincia, pais, dni, telefono, correo, login, contraseña) => {
       var x = Boolean(false);
-      const querySnapshot = await getDocs(collection(db, "clientes", dni));
+      const querySnapshot = await getDocs(collection(db, "clientes"));
       querySnapshot.forEach((doc) => {
           if (doc.id == dni) {
               alert("YA EXISTE EL DOCUMENTO");
@@ -60,6 +81,10 @@
           setDoc(doc(db, 'clientes', dni), {
               nombre: nombre,
               apellido: apellido,
+              direccion: direccion,
+              poblacion: poblacion,
+              provincia: provincia,
+              pais: pais,
               dni: dni,
               telefono: telefono,
               correo: correo,
@@ -72,11 +97,12 @@
   }
 
 
-  export const saveDoctor = async (nombre, correo, telefono, dni, contraseña) => {
+  export const saveDoctor = async (nombre, correo, telefono, dni) => {
       var x = Boolean(false);
 
       const querySnapshot = await getDocs(collection(db, "doctores"));
       querySnapshot.forEach((doc) => {
+
           if (doc.id == dni) {
               alert("YA EXISTE EL DOCUMENTO");
               x = false;
@@ -85,6 +111,7 @@
           }
       })
 
+      console.log(x)
 
       if (x == true) {
           setDoc(doc(db, "doctores", dni), {
@@ -92,21 +119,25 @@
               correo: correo,
               telefono: telefono,
               dni: dni,
-              contraseña: contraseña,
+              contraseña: generatePassword(),
               usuario: dni,
-              tipo: "doctor"
+              tipo: "doctor",
+
 
           })
       }
+
+      console.log(x)
+
   }
 
   export const saveSecret = async (nombre, correo, telefono, dni, contraseña) => {
       var x = Boolean(false);
-      const querySnapshot = await getDocs(collection(db, "secretarios"));
+      const querySnapshot = await getDocs(collection(db, "recepcionistas"));
       querySnapshot.forEach((doc) => {
           if (doc.id == dni) {
               alert("YA EXISTE EL DOCUMENTO");
-              deleteDoc(collection(db, "secretarios", dni))
+
               x = false;
           } else {
               x = true;
@@ -114,14 +145,14 @@
       })
       // size == 0 
       if (x == true) {
-          setDoc(doc(db, 'secretarios', dni), {
+          setDoc(doc(db, 'recepcionistas', dni), {
               nombre: nombre,
               correo: correo,
               telefono: telefono,
               dni: dni,
               usuario: dni,
-              contraseña: contraseña,
-              tipo: "secretarios"
+              contraseña: generatePassword(),
+              tipo: "recepcionista"
 
           })
       }
@@ -130,62 +161,7 @@
 
   //  export const deleteDoc = (doc) => deleteDoc(doc(db, "doctores"), doc.id);
 
-  export const deleteDoc = async (dni) => {
-      var x = Boolean(false);
-      const querySnapshot = await getDocs(collection(db, "doctores"));
-      querySnapshot.forEach((doc) => {
-          //   console.log(doc.id);
-          // console.log(dni);
-
-
-          if (doc.id == dni) {
-              console.log(doc.id);
-              console.log(dni);
-
-              console.log("YA EXISTE EL DOCUMENTO");
-
-              x = false;
-          } else {
-              x = true;
-          }
-      })
-      // size == 0 
-
-      if (x == false) {
-
-          await deleteDoc(doc(db, "doctores", dni).delete());
-
-      }
-
+  export const deleteDoco = async (dni) => {
+      deleteDoc(doc(db, "doctores", dni));
+      deleteDoc(doc(db, "recepcionistas", dni));
   }
-
-
-
-  /*
-    export const deleteDoc = async (dni) => {
-      var x = Boolean(false);
-      const querySnapshot = await getDocs(collection(db, "doctores"));
-      querySnapshot.forEach((doc) => {
-          //   console.log(doc.id);
-          console.log(dni);
-
-
-          if (doc.id == dni) {
-              console.log(doc.id);
-              console.log("YA EXISTE EL DOCUMENTO");
-
-              x = false;
-          } else {
-              x = true;
-          }
-      })
-      // size == 0 
-      if (x == true) {
-
-          //      deleteDoc(doc(db, "doctores", dni));
-
-      }
-
-  }
-
-  */

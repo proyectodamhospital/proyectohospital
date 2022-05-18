@@ -1,6 +1,8 @@
 import {
+    deleteDoco,
     saveDoctor,
-    deleteDoc
+    saveSecret
+
 } from './firebase.js'
 //inicio desplegable izquierda
 const toggle = document.querySelector(".toggle")
@@ -24,6 +26,9 @@ enlacesMenu.forEach(enlace => {
         iconoMenu.classList.replace("bx-menu", "bx-x")
     })
 })
+
+
+
 //fin de desplegable izquierda
 
 
@@ -112,6 +117,7 @@ frmUsers.addEventListener('submit', (e) => {
 
 
 })
+
 const frmDelUsers = document.getElementById("frmDelUsers")
 
 
@@ -119,10 +125,35 @@ frmDelUsers.addEventListener('submit', (e) => {
     e.preventDefault()
     const dni = frmDelUsers['dni-delete']
 
-    deleteDoc(
+    deleteDoco(
         // console.log(dni.value),
         dni.value
+    )
+})
 
+
+
+const frmRecp = document.getElementById("frmRecp")
+
+//fin menu dinamico
+frmRecp.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+
+    const nombre = frmRecp['nomform']
+    const correo = frmRecp['emailform']
+    const telefono = frmRecp['tfnform']
+    const DNI = frmRecp['dniform']
+    const contraseña = frmRecp['passform']
+
+    console.log(nombre.value)
+    console.log(DNI.value)
+    saveSecret(
+        nombre.value,
+        correo.value,
+        telefono.value,
+        DNI.value,
+        contraseña.value
     )
 
 
