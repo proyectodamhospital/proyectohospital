@@ -159,6 +159,18 @@
       deleteDoc(doc(db, "recepcionistas", dni));
   }
 
+
+  export const saveCita = async (fecha, hora, doctor, especialidad) => {
+
+      setDoc(doc(db, "citas", fecha), {
+          fecha: fecha,
+          hora: hora,
+          doctor: doctor,
+          especialidad: especialidad,
+
+      })
+
+  }
   export const registro = async (dni) => {}
   export const login = async (dni) => {}
   export const logout = async (dni) => {}
