@@ -3,12 +3,12 @@ import {
     getTaskroot,
 
 } from './firebase.js'
-
+/*
 import {
     getAuth,
     onAuthStateChanged
 } from "firebase/auth";
-
+*/
 
 
 window.addEventListener('DOMContentLoaded', async () => {

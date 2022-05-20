@@ -1,7 +1,9 @@
 import {
     deleteDoco,
     saveDoctor,
-    saveSecret
+    saveSecret,
+
+    deleteDoco
 
 } from './firebase.js'
 //inicio desplegable izquierda
@@ -83,6 +85,9 @@ const addJsonElement = json => {
 
 
 
+            //$form.reset()
+
+
         } else {
             alert("Complete los campos")
 
@@ -128,10 +133,11 @@ frmDelUsers.addEventListener('submit', (e) => {
     e.preventDefault()
     const dni = frmDelUsers['dni-delete']
 
+
     deleteDoco(
-        // console.log(dni.value),
         dni.value
     )
+
 })
 
 
@@ -158,6 +164,6 @@ frmRecp.addEventListener('submit', (e) => {
         contraseña.value
     )
 
-
+    console.log(dni.value)
 
 })
