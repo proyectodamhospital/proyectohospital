@@ -79,14 +79,17 @@ const addJsonElement = json => {
             $div.classList.add("notification", "is-link", "is-light", "py-2", "my-1")
             $div.innerHTML = templateElement(`${$form.name.value}-${$form.email.value}-${$form.tlf.value}-${$form.dni.value}-${$form.pass.value}`, index)
 
-            $divElements.insertBefore($div, $divElements.firstChild) //   $form.reset()
+            $divElements.insertBefore($div, $divElements.firstChild)
+
+
 
         } else {
             alert("Complete los campos")
+
         }
 
     })
-
+    //  $form.reset()
 
 })()
 
@@ -138,7 +141,6 @@ const frmRecp = document.getElementById("frmRecp")
 //fin menu dinamico
 frmRecp.addEventListener('submit', (e) => {
     e.preventDefault()
-
 
     const nombre = frmRecp['nomform']
     const correo = frmRecp['emailform']

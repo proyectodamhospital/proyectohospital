@@ -12,11 +12,13 @@
       doc,
       collection,
       deleteDoc,
-
-
-
-
   } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+  import {
+      getAuth,
+      signOut
+  } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -39,10 +41,12 @@
   const analytics = getAnalytics(app);
   // Initialize service
   const db = getFirestore();
+  //
+  const auth = getAuth();
 
   export const getTask = async () => getDocs(collection(db, "clientes"));
   export const getTaskroot = async () => getDocs(collection(db, "root"));
-  export const getTaskDoctor = async () => deleteDoc(doc(db, "doctores", "qwed"));
+  export const getTaskDoctor = async () => deleteDoc(doc(db, "doctores"));
 
 
 
@@ -62,22 +66,17 @@
       return pass;
   }
 
-
-
   //guarda en una coleccion
   export const saveCli = async (nombre, apellido, direccion, poblacion, provincia, pais, dni, telefono, correo, login, contraseña) => {
       var x = Boolean(false);
       const querySnapshot = await getDocs(collection(db, "clientes"));
       querySnapshot.forEach((doc) => {
           if (doc.id == dni) {
-              alert("YA EXISTE EL DOCUMENTO");
-              x = false;
-          } else {
               x = true;
-          }
+          } else {}
       })
       // size == 0 
-      if (x == true) {
+      if (x == false) {
           setDoc(doc(db, 'clientes', dni), {
               nombre: nombre,
               apellido: apellido,
@@ -90,30 +89,29 @@
               correo: correo,
               usuario: login,
               contraseña: contraseña,
-
           })
+
+          alert("USUARIO CREADO CORRECTAMENTE")
+          window.location.href = '../index.html';
+
+
+      } else {
+          alert("YA EXISTE EL DOCUMENTO");
+
       }
 
   }
 
-
   export const saveDoctor = async (nombre, correo, telefono, dni) => {
       var x = Boolean(false);
-
       const querySnapshot = await getDocs(collection(db, "doctores"));
       querySnapshot.forEach((doc) => {
-
           if (doc.id == dni) {
-              alert("YA EXISTE EL DOCUMENTO");
-              x = false;
-          } else {
               x = true;
-          }
+          } else {}
       })
 
-      console.log(x)
-
-      if (x == true) {
+      if (x == false) {
           setDoc(doc(db, "doctores", dni), {
               nombre: nombre,
               correo: correo,
@@ -122,29 +120,22 @@
               contraseña: generatePassword(),
               usuario: dni,
               tipo: "doctor",
-
-
           })
+      } else {
+          alert("YA EXISTE EL DOCUMENTO");
       }
-
-      console.log(x)
-
   }
 
-  export const saveSecret = async (nombre, correo, telefono, dni, contraseña) => {
+  export const saveSecret = async (nombre, correo, telefono, dni) => {
       var x = Boolean(false);
       const querySnapshot = await getDocs(collection(db, "recepcionistas"));
       querySnapshot.forEach((doc) => {
           if (doc.id == dni) {
-              alert("YA EXISTE EL DOCUMENTO");
-
-              x = false;
-          } else {
               x = true;
-          }
+          } else {}
       })
       // size == 0 
-      if (x == true) {
+      if (x == false) {
           setDoc(doc(db, 'recepcionistas', dni), {
               nombre: nombre,
               correo: correo,
@@ -155,13 +146,19 @@
               tipo: "recepcionista"
 
           })
+      } else {
+          alert("YA EXISTE EL DOCUMENTO");
+
       }
 
   }
 
-  //  export const deleteDoc = (doc) => deleteDoc(doc(db, "doctores"), doc.id);
 
   export const deleteDoco = async (dni) => {
       deleteDoc(doc(db, "doctores", dni));
       deleteDoc(doc(db, "recepcionistas", dni));
   }
+
+  export const registro = async (dni) => {}
+  export const login = async (dni) => {}
+  export const logout = async (dni) => {}

@@ -1,5 +1,6 @@
 import {
-    saveCli
+    saveCli,
+    getTask
 } from './firebase.js';
 
 
@@ -28,6 +29,10 @@ formAlta.addEventListener('submit', (e) => {
     const contraseña2 = formAlta['altaUsu-contra2']
 
 
+
+
+    var x = Boolean(false);
+
     if (contraseña.value != contraseña2.value) {
         alert("las contraseñas no coinciden");
     } else if (!correo.value.includes("@")) {
@@ -46,6 +51,7 @@ formAlta.addEventListener('submit', (e) => {
             usuario.value,
             contraseña.value
         )
+        //   window.location.href = '../index.html';
 
 
 

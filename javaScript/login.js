@@ -1,7 +1,15 @@
 import {
     getTask,
-    getTaskroot
+    getTaskroot,
+
 } from './firebase.js'
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "firebase/auth";
+
+
 
 window.addEventListener('DOMContentLoaded', async () => {
 
@@ -15,6 +23,7 @@ log.addEventListener('submit', async (e) => {
     var x = Boolean(false);
     const usuario = log['log-usu']
     const contraseña = log['log-contra']
+
     /**
      * comprobar root
      */
@@ -22,7 +31,10 @@ log.addEventListener('submit', async (e) => {
     querySnapshot.forEach(doc => {
         if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
             x = true;
+            //      const uid = user.uid;
+
             window.location.href = '../html/dashboard.html';
+
         } else {
             x = false;
         }
@@ -32,30 +44,34 @@ log.addEventListener('submit', async (e) => {
     /**
      * comprobar cliente
      */
-
     const querySnapshot2 = await getTask()
     querySnapshot2.forEach(doc => {
         if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
             x = true;
-            console.log("soy el puto amo")
+            //      const uid = user.uid;
+
+            window.location.href = '../html/citas.html';
+
+
         } else {
             x = false;
-            console.log("NOOOOOOOOOOOOO soy el puto amo")
         }
         console.log(doc.id, '=>', doc.data().usuario);
         console.log(doc.id, '=>', doc.data().contraseña);
 
 
-        /*
-        COPIAR EL BLOQUE PARA EL ROOT POR QUE FALTA PRIORIZAR EL ORDEN DE BUSQUEDA POR TABLAS
-        
-        FALTA REDIRECCIONAMIENTO POR TIPO DE PERSONA
-        */
-
-        // console.log(doc.data());
-
     });
-
-
+    /*    onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                const uid = user.uid;
+                // ...
+            } else {
+                // User is signed out
+                // ...
+            }
+        });
+    */
 
 })
