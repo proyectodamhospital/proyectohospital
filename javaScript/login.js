@@ -1,24 +1,23 @@
 import {
     getTask,
+    getTaskRecep,
     getTaskroot,
+    getTaskDoct,
+    EntrarConAuth,
+    CrearAuthUser,
+
 
 } from './firebase.js'
-/*
-import {
-    getAuth,
-    onAuthStateChanged
-} from "firebase/auth";
-*/
 
-
-window.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('DOMContentLoaded', async() => {
 
 
 })
 
+
 const log = document.getElementById('loginform')
 
-log.addEventListener('submit', async (e) => {
+log.addEventListener('submit', async(e) => {
     e.preventDefault()
     var x = Boolean(false);
     const usuario = log['log-usu']
@@ -31,47 +30,57 @@ log.addEventListener('submit', async (e) => {
     querySnapshot.forEach(doc => {
         if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
             x = true;
-            //      const uid = user.uid;
-
             window.location.href = '../html/dashboard.html';
-
-        } else {
-            x = false;
         }
-    });
+    })
+
+    /**
+     * comprobar recepcionista
+     */
+    const querySnapshot2 = await getTaskRecep()
+    querySnapshot2.forEach(doc => {
+        if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+            x = true;
+            CrearAuthUser(doc.data().correo, doc.data().contraseña);
+            EntrarConAuth(doc.data().correo, doc.data().contraseña);
+
+            window.location.href = '../html/dashboardRecepcionista.html';
+        }
+        //   console.log(doc.id, '=>', doc.data().usuario);
+        //  console.log(doc.id, '=>', doc.data().contraseña);
+    })
+
+    /**
+     * comprobar doctor
+     */
+    const querySnapshot3 = await getTaskDoct()
+    querySnapshot3.forEach(doc => {
+        if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+            x = true;
+            CrearAuthUser(doc.data().correo, doc.data().contraseña);
+            EntrarConAuth(doc.data().correo, doc.data().contraseña);
+
+            window.location.href = '../html/dashboardDoctor.html';
+        }
+        //   console.log(doc.id, '=>', doc.data().usuario);
+        //  console.log(doc.id, '=>', doc.data().contraseña);
+    })
+
 
 
     /**
      * comprobar cliente
      */
-    const querySnapshot2 = await getTask()
-    querySnapshot2.forEach(doc => {
+    const querySnapshot4 = await getTask()
+    querySnapshot4.forEach(doc => {
         if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
             x = true;
-            //      const uid = user.uid;
-
+            EntrarConAuth(doc.data().correo, doc.data().contraseña);
+            //  console.log(usuario.value)
+            // console.log(contraseña.value)
             window.location.href = '../html/citas.html';
-
-
-        } else {
-            x = false;
         }
-        console.log(doc.id, '=>', doc.data().usuario);
-        console.log(doc.id, '=>', doc.data().contraseña);
 
-
-    });
-    /*    onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                const uid = user.uid;
-                // ...
-            } else {
-                // User is signed out
-                // ...
-            }
-        });
-    */
+    })
 
 })

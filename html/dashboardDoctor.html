@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/dashboardDoctor.css">
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script type="module" src="../javaScript/dashboardDoctor.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="main">
+        <!--Menu inicio-->
+        <header>
+            <div class="SocialNetwork">
+                <div class="miniContainer">
+                    <a href=""><i class="Icon fab fa-facebook-f"></i></a>
+                    <a href=""><i class="Icon fab fa-instagram"></i></a>
+                    <a href=""><i class="Icon fab fa-twitter"></i></a>
+                    <a href=""><i class="Icon fab fa-pinterest"></i></a>
+                </div>
+                <div class="info">
+                    <img class="img_info" src="../imagenes/logo_reyjuancarlos.png" width="170px">
+                    <ul>
+                        <li><a href="../index.html">Volver al inicio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--FIN Menu inicio-->
+
+        <!--Añadir user-->
+        <div id="medio">
+
+            <!--<form id="frmUsers">
+                <label class="label">Visualizar citas</label>
+                <div class="field is-grouped is-grouped-multiline">
+                    <div class="control has-icons-left">
+                        <input class="input" name="name" type="text" placeholder="Complete Name" autocomplete="off" id="nomform">
+                    </div>
+
+                    <div class="control has-icons-left">
+                        <input class="input" name="HoraCita" type="text" placeholder="HoraCita" autocomplete="off" id="nomform">
+                    </div>
+
+                    <div class="control has-icons-left">
+                        <input class="input" name="dni" type="text" placeholder="DNI" autocomplete="off" id="dniform">
+                    </div>
+
+                    <div class="control has-icons-left">
+                        <input class="input" name="pais" type="text" placeholder="especialidad" autocomplete="off" id="dniform">
+                    </div>
+
+                    <div class="control">
+                        <button id="btnAdd" type="submit" class="button is-info">
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+            </form>-->
+            <div id="divElements">
+
+            </div>
+        </div>
+
+        <div id="AddComment">
+            <form id="commentCita">
+                <div class="control has-icons-left">
+                    <input class="input" name="doctor" type="text" placeholder="doctor" autocomplete="off" id="doctor">
+                </div>
+                <select name="hora" name="hora" id="hora2">
+                    <option value="9:00">9:00</option>
+                    <option value="9:30">9:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                </select>
+                <input type="date" class="form-control" placeholder="Fecha" required="required" name="fecha" id="fecha2">
+
+                <label class="label">Añadir comentarios</label>
+                <div class="field is-grouped is-grouped-multiline">
+                    <textarea id="comentario" name="story" rows="5" cols="33">
+                    </textarea>
+                    <div class="control">
+                        <button id="btnAdd" type="submit" class="button is-info">
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+        </div>
+
+
+        <div id="ModificarContra">
+            <form action="" id="frmChangeUsers">
+                <div class="field is-grouped is-grouped-multiline">
+                    <div class="control">
+                        <div class="control has-icons-left">
+                            <input class="input" name="contra" type="text" placeholder="contraseña actual" autocomplete="off" id="oldPass">
+                        </div>
+                        <div class="control has-icons-left">
+                            <input class="input" name="contra" type="text" placeholder="contraseña nueva" autocomplete="off" id="newPAss">
+                        </div>
+                        <div class="control has-icons-left">
+                            <input class="input" name="contra" type="text" placeholder="confirmar contraseña" autocomplete="off" id="newPAss2">
+                        </div>
+                        <button id="btnChange" type="submit" class="button is-info">
+                            Cambiar contraseña
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--FIN añadir User-->
+
+        <!--Menu lateral-->
+        <div class="menu-dashboard">
+            <div class="top-menu">
+                <div class="toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </div>
+            <div class="input-search">
+                <i class='bx bx-search'></i>
+                <input type="text" class="input" placeholder="Buscar">
+            </div>
+            <div class="menu">
+                <div class="enlace" onclick="medio();">
+                    <i class="bx bx-grid-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+
+                <div class="enlace" onclick="AddComment();">
+                    <i class="bx bx-message-square"></i>
+                    <span>Añadir comentarios</span>
+                </div>
+
+                <div class="enlace" onclick="ModificarContra();">
+                    <i class="bx bx-user"></i>
+                    <span>Cuenta</span>
+                </div>
+            </div>
+        </div>
+        <!--FIN Menu lateral-->
+    </div>
+</body>
+<!--Script ocultar/mostrar user-->
+<script type="text/javaScript">
+    function AddComment(){ document.getElementById('AddComment').style.display = 'block'; document.getElementById('medio').style.display = 'none'; document.getElementById('ModificarContra').style.display = 'none';} function medio(){ document.getElementById('medio').style.display='block';
+    document.getElementById('AddComment').style.display='none'; document.getElementById('ModificarContra').style.display='none';} function ModificarContra(){ document.getElementById('ModificarContra').style.display= 'block'; document.getElementById('medio').style.display
+    = 'none'; document.getElementById('AddComment').style.display= 'none'; }
+</script>
+<!--FIN Script ocultar/mostrar user-->
+
+</html>

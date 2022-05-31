@@ -1,13 +1,12 @@
 import {
-    saveCli,
-    getTask
-} from './firebase.js';
-
-
+    saveTask,
+    CrearAuthUser,
+    sessionActiva,
+} from './firebase.js'
 
 window.addEventListener('DOMContentLoaded', () => {
 
-
+    sessionActiva();
 })
 
 const formAlta = document.getElementById('formAlta')
@@ -28,36 +27,20 @@ formAlta.addEventListener('submit', (e) => {
     const contraseña = formAlta['altaUsu-contra']
     const contraseña2 = formAlta['altaUsu-contra2']
 
+    saveTask(
+        nombre.value,
+        apellido.value,
+        direccion.value,
+        poblacion.value,
+        provincia.value,
+        pais.value,
+        DNI.value,
+        telefono.value,
+        correo.value,
+        usuario.value,
+        contraseña.value)
 
-
-
-    var x = Boolean(false);
-
-    if (contraseña.value != contraseña2.value) {
-        alert("las contraseñas no coinciden");
-    } else if (!correo.value.includes("@")) {
-        alert("el correo debe de contener @ y acabar en .com o .es");
-    } else {
-        saveCli(
-            nombre.value,
-            apellido.value,
-            direccion.value,
-            poblacion.value,
-            provincia.value,
-            pais.value,
-            DNI.value,
-            telefono.value,
-            correo.value,
-            usuario.value,
-            contraseña.value
-        )
-        //   window.location.href = '../index.html';
-
-
-
-    }
-
-
+    CrearAuthUser(correo.value, contraseña.value);
 
 
 

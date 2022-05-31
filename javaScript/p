@@ -1,0 +1,62 @@
+export const saveComment = async (comentario) => {
+    var x = Boolean(false);
+    var hora;
+    var especialidad;
+    var correo;
+    var doctor;
+    var fecha;
+    var dni;
+
+
+
+    const querySnapshot = await getDocs(collection(db, "citas"));
+
+    querySnapshot.forEach((doc) => {
+
+
+        if (doc.data().doctor == doctor && doc.data().hora == hora && doc.data().fecha == fecha) {
+            console.log(doc.data().correo)
+
+            x = true;
+            fecha = doc.data().fecha
+            hora = doc.data().hora
+            correo = doc.data().correo
+            dni = doc.data().dni
+            //  especialidad = especialidad.doc.data().especialidad
+            //  doctor = doc.data().doctor
+            // console.log(fecha)
+
+            // console.log(fecha)
+            // console.log(hora)
+            //  console.log(correo)
+            //  console.log(dni)
+            //   console.log(especialidad)
+            //  console.log(doctor)
+
+
+        }
+
+
+
+    })
+    /*
+          if (x == true) {
+              setDoc(doc(db, "citas", fecha), {
+                  correo: correo,
+                  dni: dni,
+                  doctor: doctor,
+                  especialidad: especialidad,
+                  hora: hora,
+                  fecha: fecha,
+                  comentario: comentario
+
+              })
+          } else {
+
+              alert("No se pudo añadir el comentario");
+
+
+          }
+          */
+
+}

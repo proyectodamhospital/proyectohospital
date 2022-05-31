@@ -1,92 +1,114 @@
-
-html{
+html {
     background-color: whitesmoke;
     width: 100%;
     height: 100%;
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
 /*REDES SOCIALES*/
-.SocialNetwork{
+
+.SocialNetwork {
     background-color: #292929;
     width: 1920px;
     height: 40px;
 }
-a{
+
+a {
     margin-left: 6px;
 }
-.miniContainer{ 
-    margin-left:150px;
+
+.miniContainer {
+    margin-left: 150px;
     padding-top: 10px;
 }
+
+
 /*MENU*/
-.menu{
+
+.menu {
     width: 1920px;
     background-color: whitesmoke;
     list-style: none;
-    position:absolute;
+    position: absolute;
     z-index: 100000;
 }
-.minimenu{
+
+.minimenu {
     margin-left: 740px;
 }
-.menu li a{
+
+.menu li a {
     text-decoration: none;
-    color:black;
+    color: black;
     padding: 10px;
     display: block;
 }
-.menu li{
+
+.menu li {
     display: inline-block;
     text-align: center;
 }
-.menu li a:hover{
-    color:orange;
- 
+
+.menu li a:hover {
+    color: orange;
 }
+
+
 /*FIN MENU*/
+
+
 /*INICIO INFO*/
-.info{
+
+.info {
     list-style: none;
-    margin-top:-28px;
+    margin-top: -28px;
     margin-left: 1500px;
 }
-.info li{
+
+.info li {
     font-size: 18px;
     margin-left: 12px;
     padding: 4px;
     color: white;
     display: inline-block;
-
 }
+
 .info li a {
     color: white;
     text-decoration: none;
     display: block;
 }
-.info li a:hover{
-    color:orange;
- 
+
+.info li a:hover {
+    color: orange;
 }
-.Icon{
+
+.Icon {
     font-size: 25px;
     color: white;
 }
+
+
 /*FIN INFO*/
-  /*MEDIO*/
+
+
+/*MEDIO*/
 
 #central {
+    margin-top: 50px;
     max-width: 320px;
     width: 100%;
 }
 
 .titulo {
     font-size: 250%;
-    color:white;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -98,15 +120,12 @@ a{
     width: 100%;
     padding: 50px 30px;
     background-color: #423737;
-    
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-    
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
-    
     box-sizing: border-box;
 }
 
@@ -114,16 +133,12 @@ a{
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
     color: #1b262c;
-    
     display: block;
     width: 100%;
     height: 40px;
-    
     margin-bottom: 10px;
     padding: 5px 5px 5px 10px;
-    
     box-sizing: border-box;
-    
     border: none;
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -138,28 +153,25 @@ a{
 #login button {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
-    color:white;
+    color: white;
     width: 100%;
     height: 40px;
     border: none;
-    
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
-    
     background-color: rgb(160, 160, 160);
-    
     margin-top: 10px;
 }
 
 #login button:hover {
     background-color: black;
-    color:white;
+    color: white;
 }
 
 .pie-form {
     font-size: 90%;
-    text-align: center;    
+    text-align: center;
     margin-top: 15px;
 }
 
@@ -174,144 +186,139 @@ a{
     color: orange;
 }
 
+
+/*FIN MEDIO*/
+
+
 /*INICIO FOOTER*/
-  .footer{
+
+.footer {
+    margin-top: 50px;
     position: absolute;
     background-color: #292929;
     width: 1920px;
     height: 400px;
-  }
+}
 
-  .foot1{
+.foot1 {
     line-height: 28px;
-      color: white;
-      font-size: 20px;
-      margin-left: 140px;
-      margin-top: 20px;
-      width: 200px;
-      height: 40px;
-  }
+    color: white;
+    font-size: 20px;
+    margin-left: 140px;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+}
 
-  .foot2 ul li{
-    list-style:none;
-  }
-  .foot2{
+.foot2 ul li {
+    list-style: none;
+}
+
+.foot2 {
     line-height: 28px;
     color: white;
     font-size: 22px;
     width: 250px;
     height: 120px;
-    margin-top:-40px;
+    margin-top: -40px;
     margin-left: 780px;
-  }
+}
 
-  .foot3{
-      line-height: 28px;
+.foot3 {
+    line-height: 28px;
     width: 500px;
     height: 70px;
     margin-top: -120px;
     margin-left: 1400px;
     font-size: 22px;
-    color:white;
- }
+    color: white;
+}
 
- .politicas{
-     position: absolute;
-     font-size: 16px;
-     margin-left: 20px;
-     margin-top:240px;
-     width: 500px;
-     height: 100px;
-     color: white;
- }
- .logo{
-     position: absolute;
-     margin-left: 1600px;
-     margin-top: 220px;
- }
+.politicas {
+    position: absolute;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 240px;
+    width: 500px;
+    height: 100px;
+    color: white;
+}
 
- .miniContainer2{
-     margin-top: 50px;
+.logo {
+    position: absolute;
+    margin-left: 1600px;
+    margin-top: 220px;
+}
+
+.miniContainer2 {
+    margin-top: 50px;
     margin-left: 150px;
 }
- /*FIN FOOTER*/
 
- @media (min-width:375px) and (max-width: 899px){
-     .SocialNetwork{
+
+/*FIN FOOTER*/
+
+@media (min-width:375px) and (max-width: 899px) {
+    .SocialNetwork {
         background-color: #292929;
         width: 100%;
         height: 40px;
-     }
-
-     .tel{
-         visibility: hidden;
-     }
-
-     .miniContainer{
-         margin-left: 15px;
-     }
-     .info{
-         margin-left: 50px;
-     }
-
-     .menu{
+    }
+    .tel {
+        visibility: hidden;
+    }
+    .miniContainer {
+        margin-left: 15px;
+    }
+    .info {
+        margin-left: 50px;
+    }
+    .menu {
         width: 375px;
         height: 30px;
-     }
-     .minimenu{
-         margin-left: 0px;
-     }
-
-     #login{
-         margin-bottom: 20px;
-         margin-left: 25px;
-     }
-
-    .footer{
+    }
+    .minimenu {
+        margin-left: 0px;
+    }
+    #login {
+        margin-bottom: 20px;
+        margin-left: 25px;
+    }
+    .footer {
         width: 375px;
         height: 500px;
     }
-
-    .foot1{
+    .foot1 {
         width: 95px;
         font-size: small;
-        margin-left:50px;
+        margin-left: 50px;
     }
-
-    .miniContainer2{
+    .miniContainer2 {
         margin-top: -40px;
         margin-left: 30px;
     }
-
-    .foot2{
+    .foot2 {
         font-size: small;
         margin-left: 225px;
         width: 150px;
         height: 190px;
     }
-
-    .foot3{
+    .foot3 {
         line-height: 20px;
         width: 340px;
         height: 80px;
         position: absolute;
-        margin-top:20px;
+        margin-top: 20px;
         font-size: small;
         margin-left: 25px;
-
     }
-
-    .politicas{
-        width:368px ;
+    .politicas {
+        width: 368px;
         height: 55px;
-        margin-top:235px;
-        font-size: small;
         margin-left: 7px;
     }
-
-    .logo{
-        margin-top:140px;
+    .logo {
+        margin-top: 140px;
         margin-left: 30px;
     }
-    
 }

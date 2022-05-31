@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-
 html {
     --blanco: #E0E0E0;
     --azul-opacidad: rgb(37, 31, 31);
@@ -18,10 +17,13 @@ body {
     color: var(--blanco);
 }
 
+
 /*DASHBOARD*/
+
 .menu-dashboard {
+    position: absolute;
     max-width: 150px;
-    height: 100vh;
+    height: 120vh;
     background: var(--bg-menu);
     padding: 20px;
     transition: max-width .3s ease;
@@ -84,8 +86,8 @@ body {
     outline: none;
     background-color: transparent;
     width: 100%;
-    height: 30px;
     color: var(--blanco);
+    height: 30px;
     font-size: 22px;
     display: none;
 }
@@ -141,8 +143,12 @@ body {
     opacity: 1;
 }
 
+
 /*FIN DASHBOARD*/
+
+
 /*REDES SOCIALES*/
+
 .SocialNetwork {
     background-color: #292929;
     width: 1920px;
@@ -158,7 +164,9 @@ a {
     padding-top: 10px;
 }
 
+
 /*INICIO INFO*/
+
 .img_info {
     position: absolute;
     margin-top: -5px;
@@ -178,7 +186,6 @@ a {
     padding: 4px;
     color: white;
     display: inline-block;
-
 }
 
 .info li a {
@@ -189,7 +196,6 @@ a {
 
 .info li a:hover {
     color: orange;
-
 }
 
 .Icon {
@@ -197,8 +203,12 @@ a {
     color: white;
 }
 
+
 /*FIN INFO*/
+
+
 /*AÑADIR USER*/
+
 .menu-icon,
 #check {
     display: none;
@@ -209,8 +219,8 @@ a {
     color: black;
     margin-top: 100px;
     position: absolute;
-    margin-left: 360px;
-    width: 700px;
+    margin-left: 200px;
+    width: auto;
     height: auto;
 }
 
@@ -219,8 +229,8 @@ a {
     color: black;
     margin-top: 100px;
     position: absolute;
-    margin-left: 360px;
-    width: 700px;
+    margin-left: 200px;
+    width: auto;
     height: auto;
 }
 
@@ -228,71 +238,100 @@ a {
     color: black;
     margin-top: 100px;
     position: absolute;
-    margin-left: 360px;
-    width: 700px;
+    margin-left: 200px;
+    width: auto;
     height: auto;
 }
 
-.eliminarUser {
-    width: 700px;
-    margin-left: 360px;
+#eliminarUser {
+    margin-left: 200px;
     position: absolute;
-    margin-top: 700px;
+    margin-top: 500px;
 }
 
+
 /*FIN AÑADIR USER*/
+
+
 /*RESPONSIVE*/
+
 @media (min-width:375px) and (max-width: 899px) {
+
+
+    #eliminarUser .field {
+        display: inline-block;
+        width: 250px;
+    }
+    #eliminarUser {
+        margin-top: 670px;
+        position: absolute;
+        margin-left: 115px;
+    }
+    #medio .field {
+        display: block;
+        width: 250px;
+    }
+    #medio {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 115px;
+    }
+    #doctor .field {
+        display: block;
+        width: 250px;
+    }
+    #doctor {
+        margin-top: 10px;
+        margin-left: 115px;
+    }
+    #recepcionista .field {
+        display: block;
+        width: 250px;
+    }
+    #recepcionista {
+        margin-top: 10px;
+        margin-left: 115px;
+    }
     .SocialNetwork {
         background-color: #292929;
         width: 100%;
         height: 40px;
     }
-
     .tel {
         visibility: hidden;
     }
-
     .miniContainer {
         margin-left: 15px;
     }
-
     .info {
-        margin-left: 50px;
+        margin-left: 215px;
     }
-
     .menu {
         width: 375px;
         height: 30px;
     }
-
     .minimenu {
         margin-left: 0px;
     }
-
     .footer {
         width: 375px;
         height: 500px;
     }
-
     .foot1 {
         width: 95px;
         font-size: small;
         margin-left: 50px;
     }
-
     .miniContainer2 {
         margin-top: -40px;
         margin-left: 30px;
     }
-
     .foot2 {
         font-size: small;
         margin-left: 225px;
         width: 150px;
         height: 190px;
     }
-
     .foot3 {
         line-height: 20px;
         width: 340px;
@@ -301,9 +340,7 @@ a {
         margin-top: 20px;
         font-size: small;
         margin-left: 25px;
-
     }
-
     .politicas {
         width: 368px;
         height: 55px;
@@ -311,25 +348,19 @@ a {
         font-size: small;
         margin-left: 7px;
     }
-
     .logo {
         margin-top: 140px;
         margin-left: 30px;
     }
-
-
     .checkbtn {
         display: block;
     }
-
     .menu-icon {
         display: block;
         position: absolute;
         top: 0px;
         right: 20px;
-
     }
-
     .menu ul {
         padding-left: 0px;
         display: block;
@@ -341,38 +372,31 @@ a {
         height: 26vh;
         right: 0;
     }
-
     .menu ul li {
         display: flex;
         justify-content: center;
-
     }
-
     .menu ul li :last-child {
         padding: 1rem;
         background: none;
     }
-
     #check:checked~ul {
         left: 0;
     }
-
     .menu-dashboard {
         max-width: 100px;
         height: 100vh;
     }
-
     .menu .enlace {
         width: 260px;
     }
-
-
     .menu {
         width: 300px;
-
     }
-
-
+    .field {
+        position: block;
+    }
 }
+
 
 /*FIN RESPONSIVE*/

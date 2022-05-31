@@ -1,0 +1,92 @@
+
+import {
+    getTask,
+    getTaskDoctor,
+    getTaskroot,
+
+} from './firebase.js'
+
+window.addEventListener('DOMContentLoaded', async () => {
+
+
+})
+
+const log = document.getElementById('loginform')
+
+log.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    var x = Boolean(false);
+    const usuario = log['log-usu']
+    const contraseña = log['log-contra']
+
+ 
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            /**
+             * comprobar root
+             */
+            const querySnapshot = await getTaskroot()
+            querySnapshot.forEach(doc => {
+                if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+                    x = true;
+                    window.location.href = '../html/dashboard.html';
+                } else {}
+                console.log(doc.id, '=>', doc.data().usuario);
+                console.log(doc.id, '=>', doc.data().contraseña);
+
+            });
+
+
+            /**
+             * comprobar doctor
+             */
+            const querySnapshot2 = await getTaskDoctor()
+            querySnapshot2.forEach(doc => {
+                if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+                    x = true;
+                    window.location.href = '../html/citas.html';
+                } else {}
+                console.log(doc.id, '=>', doc.data().usuario);
+                console.log(doc.id, '=>', doc.data().contraseña);
+            });
+
+
+            /**
+             * comprobar recepcionista
+             */
+            const querySnapshot3 = await getTask()
+            querySnapshot3.forEach(doc => {
+                if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+                    x = true;
+                    window.location.href = '../html/dashboardRecep.html';
+                } else {}
+                console.log(doc.id, '=>', doc.data().usuario);
+                console.log(doc.id, '=>', doc.data().contraseña);
+            });
+
+
+            /**
+             * comprobar cliente
+             */
+            const querySnapshot4 = await getTask()
+            querySnapshot4.forEach(doc => {
+                if (usuario.value == doc.data().usuario && contraseña.value == doc.data().contraseña) {
+                    x = true;
+                    window.location.href = '../html/citas.html';
+                } else {}
+                console.log(doc.id, '=>', doc.data().usuario);
+                console.log(doc.id, '=>', doc.data().contraseña);
+
+
+            });
+
+
+            const uid = user.uid;
+        } else {
+            window.location.href = '../html/login.html';
+
+        }
+    });
+
+
+})

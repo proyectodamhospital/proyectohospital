@@ -20,12 +20,25 @@
                 </div>
                 <form id="formCita">
                     <input type="date" class="form-control" placeholder="Fecha" required="required" name="fecha" id="fecha">
-                    <input type="time" name="hora" placeholder="hora" id="hora">
+                    <input type="text" name="dni" placeholder="dni" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra">
+
                     <input type="text" name="docto" placeholder="doctor" id="doctor">
                     <input type="text" name="especilidad" placeholder="especilidad" id="especilidad">
+                    <select name="hora" name="hora" id="hora">
+                        <option value="9:00">9:00</option>
+                        <option value="9:30">9:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                    </select>
 
+                    <button type="submit" title="Ingresar" name="Ingresar">Reservar cita</button>
+                    <button type="submit" id="botonVer" title="Ingresar" name="Ingresar">Ver citas</button>
 
-                    <button type="submit" title="Ingresar" name="Ingresar">Crear cuenta</button>
                 </form>
             </div>
         </div>
